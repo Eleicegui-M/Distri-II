@@ -1,0 +1,8 @@
+README
+
+Usamos la facilidad de Django Templates para la implementacion de un cliente HTML para el proyecto.
+Como todas las respuestas son en formato JSON, el parseo de los datos para la vista en el cliente
+se hace con javascript/jquery de modo que el cliente para este caso puede ser tan sencillo como un
+documento html con su archivo.js correspondiente.
+
+
