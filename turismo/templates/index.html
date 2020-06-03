@@ -20,9 +20,9 @@
 					<input type="text" class="form-control" name="nombre" id="nombre">
 
 					<label class="form-label" for="fecha-inicio">Fecha Inicio:</label>
-					<input type="text" class="form-control" name="fecha-inicio" id="fecha_inicio">
+					<input type="date" class="form-control" name="fecha-inicio" id="fecha_inicio">
 					<label class="form-label" for="fecha-fin">Fecha Fin:</label>
-					<input type="text" class="form-control" name="fecha-fin" id="fecha_fin">
+					<input type="date" class="form-control" name="fecha-fin" id="fecha_fin">
 
 					<label class="form-label" for="cantidad-p">Cantidad de Personas:</label>
 					<select class="form-control" name="cantidad-p" id="cantidad-p">
@@ -37,13 +37,21 @@
 					<label class="form-label" for="destino">Ciudad Destino:</label>
 					<input type="text" class="form-control" name="destino" id="destino">
 
-					<label class="form-label" for="aerolinea">Aerolinea:</label>
-					<select class="form-control" name="aerolinea" id="aerolinea">
+					<label class="form-label" for="vuelo">Vuelo ida:</label>
+					<select class="form-control" name="vuelo" id="vuelo_ida">
+					</select>
+
+					<label class="form-label" for="vuelo">Vuelo vuelta:</label>
+					<select class="form-control" name="vuelo" id="vuelo_vuelta">
 					</select>
 
 					<label class="form-label" for="hotel">Hotel:</label>
 					<select class="form-control" name="hotel" id="hotel">
 					</select>
+
+
+					<label class="form-label" for="estrellas">Estrellas:</label>
+					<input type="text" class="form-control" name="estrellas" id="estrellas" disabled="disabled">
 
 					<label class="form-label" for="excursion1">Excursion 1:</label>
 					<select class="form-control" name="excursion1" id="excursion1">

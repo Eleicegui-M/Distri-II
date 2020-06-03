@@ -3,7 +3,10 @@ from django.db import models
 # Create your models here.
 
 class Vuelo(models.Model):
+	id_vuelo = models.CharField()
 	nombre_aerolinea = models.CharField(max_length=100) #nombre aerolinea 
-	id_vuelo = models.CharField(max_length=100) #codigo de vuelo
 	fecha = models.DateTimeField() #fecha-hora vuelo
-	cant_pasajeros = models.IntegerField()
+	disponibilidad = models.IntegerField() #cupo disponible
+	ciudad_origen = models.CharField(max_length=100) #ubicacion
+	ciudad_destino = models.CharField(max_length=100) #ubicacion
+	precio = models.FloatField() #costo
