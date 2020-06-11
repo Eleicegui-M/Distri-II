@@ -7,6 +7,6 @@ class Hotel(models.Model):
 	lugar = models.CharField(max_length=100) #ubicacion
 	disponibilidad = models.IntegerField() #cupo disponible
 	precio = models.FloatField() #costo
-	fecha_inicio = models.DateTimeField() #
-	fecha_fin = models.DateTimeField() #
+	fecha_inicio = models.DateField() #
+	fecha_fin = models.DateField() #
 	estrellas = models.IntegerField() #

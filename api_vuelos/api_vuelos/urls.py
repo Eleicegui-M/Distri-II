@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from vuelos.views import listar_vuelo as listar
 
 urlpatterns = [
+	path('',listar, name='listar_vuelo'),
     path('admin/', admin.site.urls),
 ]

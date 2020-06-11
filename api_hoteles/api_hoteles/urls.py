@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from hoteles.views import listar_hotel as listar
 
 urlpatterns = [
+	path('',listar, name='listar_hotel'),
     path('admin/', admin.site.urls),
 ]

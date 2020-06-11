@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from excursiones.views import listar_excursion as listar
 
 urlpatterns = [
+	path('',listar, name='listar_excursion'),
     path('admin/', admin.site.urls),
 ]

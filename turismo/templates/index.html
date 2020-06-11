@@ -24,13 +24,8 @@
 					<label class="form-label" for="fecha-fin">Fecha Fin:</label>
 					<input type="date" class="form-control" name="fecha-fin" id="fecha_fin">
 
-					<label class="form-label" for="cantidad-p">Cantidad de Personas:</label>
-					<select class="form-control" name="cantidad-p" id="cantidad-p">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-					</select>
+					<label class="form-label" for="cantidad_p">Cantidad de Personas:</label>
+					<input type="text" class="form-control" name="cantidad_p" id="cantidad_p">
 
 					<label class="form-label" for="origen">Ciudad Origen:</label>
 					<input type="text" class="form-control" name="origen" id="origen">
@@ -76,13 +71,13 @@
 			 	<div class="modal-dialog modal-dialog-centered" role="document">
 			    	<div class="modal-content">
 			    		<div class="modal-header">
-			    			<h5 class="modal-title">AQUI VA EL TITULO DEL MODAL</h5>
+			    			<h5 class="modal-title">Confirmacion</h5>
 			    			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			    				<span aria-hidden="true">&times;</span>
 			    			</button>
 			    		</div>
 			    		<div class="modal-body">
-			    			<p>Está seguro que desea continuar?</p>
+			    			<p>Desea continuar?.</p>
 			    		</div>
 			    		<div class="modal-footer">
 			    			<button type="button" class="new-btn-style" data-dismiss="modal" id="id_accion_si">Si</button>
@@ -92,6 +87,7 @@
 			 	</div>
 			 	
 			</div>
+
 			<!-- FIN MODAL -->
 
 
@@ -102,6 +98,8 @@
 		<script src="{% static 'jQuery/jquery-3.4.1.min.js' %}"></script>
 		<script src="{% static 'bootstrap/js/bootstrap4-toggle.min.js' %}"></script>
 		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/base.js' %}"></script>
+
 		<!-- <script src="{% static 'js/base.js' %}"></script>    -->
 	</body>
 </html>
