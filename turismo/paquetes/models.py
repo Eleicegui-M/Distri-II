@@ -13,7 +13,10 @@ class Paquete(models.Model):
     excursion2 = models.CharField(max_length=100) # nombre excursion 2
     excursion3 = models.CharField(max_length=100) # nombre excursion 3
     hotel = models.CharField(max_length=100) #nombre hotel
+    estrellas = models.IntegerField(default=2)
     vuelo_ida = models.CharField(max_length=100) #nombre aerolinea
     vuelo_vuelta = models.CharField(max_length=100) #nombre aerolinea
+    reservado = models.BooleanField(default=False)
+
 
 

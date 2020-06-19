@@ -13,23 +13,25 @@ def listar_hotel(request):
 	destino = request.GET.get('destino', False);
 
 	array_hoteles = []
+	array_precios = []
 	array_estrellas = []
 
-	fecha_inicio = datetime.strptime(fecha_inicio,'%Y-%m-%d')
-	fecha_fin = datetime.strptime(fecha_fin,'%Y-%m-%d')
+	fecha_inicio = datetime.strptime(fecha_inicio,'%Y-%m-%d').date()
+	fecha_fin = datetime.strptime(fecha_fin,'%Y-%m-%d').date()
+
+	
 
 	lista_hoteles = Hotel.objects.filter(lugar=destino)
 
 	for hotel in lista_hoteles:
-		print ("fecha inicio: "+str(hotel.fecha_inicio))
-		print ("fecha fin: "+str(hotel.fecha_fin))
-		if  fecha_inicio.date() <= hotel.fecha_inicio and hotel.fecha_fin <= fecha_fin.date():
+		if  (hotel.fecha_inicio <= fecha_inicio) and (fecha_fin <= hotel.fecha_fin):
 			if int(cant_p) <= hotel.disponibilidad:
 				array_hoteles.append(hotel.nombre_hotel)
+				array_precios.append(hotel.precio)
 				array_estrellas.append(hotel.estrellas)
 
-
-	return JsonResponse({"hoteles": array_hoteles, "estrellas": array_estrellas})
+	print ("hoteles: "+str(array_hoteles))
+	return JsonResponse({"hoteles": array_hoteles,"precios":array_precios ,"estrellas": array_estrellas})
 
 def reservar_hotel():
 	return HttpResponse("Nothing yet")

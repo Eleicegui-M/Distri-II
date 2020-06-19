@@ -1,0 +1,3 @@
+def reservar_paquete():
+	paquetes = Paquete.objects.all()
+	return render(request,'reserva.html',{"paquetes",paquetes})

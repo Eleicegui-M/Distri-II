@@ -1,4 +1,28 @@
-$( "#destino" ).change(function() {
+$( "#buscar" ).click(function() {
+    $("#excursion1 option").each(function() {
+        $(this).remove();
+    });
+
+     $("#excursion2 option").each(function() {
+        $(this).remove();
+    });
+
+      $("#excursion3 option").each(function() {
+        $(this).remove();
+    });
+
+    $("#hotel option").each(function() {
+        $(this).remove();
+    });
+
+    $("#vuelo_ida option").each(function() {
+        $(this).remove();
+    });
+
+    $("#vuelo_vuelta option").each(function() {
+        $(this).remove();
+    });
+
     $.ajax({
         url : "http://127.0.0.1:8001/",     // Excursiones
         method: "GET",
@@ -33,9 +57,11 @@ $( "#destino" ).change(function() {
                 $('#hotel')
                          .append($("<option></option>")
                                     .attr("value", data.estrellas[i])
+                                    .attr("name", data.precios[i])
                                     .text(val));
-                // $('#estrellas').val(data.estrellas[i]);
             })
+            $('#estrellas').val(data.estrellas[0]);
+            console.log($( "#hotel option:selected" ).attr('name'))
         }
     });
 
@@ -72,12 +98,51 @@ $( "#destino" ).change(function() {
     });
 });
 
+$( "#limpiar" ).click(function() {
+    $('#nombre').val('')
+    $('#fecha_inicio').val('')
+    $('#fecha_fin').val('')
+    $('#cantidad_p').val('')
+    $('#origen').val('')
+    $('#destino').val('')
+
+    $("#excursion1 option").each(function() {
+        $(this).remove();
+    });
+
+     $("#excursion2 option").each(function() {
+        $(this).remove();
+    });
+
+      $("#excursion3 option").each(function() {
+        $(this).remove();
+    });
+
+    $("#hotel option").each(function() {
+        $(this).remove();
+    });
+
+    $("#vuelo_ida option").each(function() {
+        $(this).remove();
+    });
+
+    $("#vuelo_vuelta option").each(function() {
+        $(this).remove();
+    });
+
+});
+
 $(document).on("click","button#generar",function(){
     $('#modal_id').modal('show');
 });
 
+$(document).on("click","button#reservar",function(){
+    console.log("Toca el boton");
+    $('#modal_reservar').show();
+    $('#modal_reservar').modal('show');
+});
+
 $(document).on("click","button#id_accion_si",function(){
-    console.log($( "#vuelo_ida option:selected" ).text())
     $.ajax({
         url : "paquetes/armar_paquete", // Vuelo vuelta
         dataType: "json",
@@ -90,6 +155,8 @@ $(document).on("click","button#id_accion_si",function(){
                 "vuelo_ida": $( "#vuelo_ida option:selected" ).text(),
                 "vuelo_vuelta": $( "#vuelo_vuelta option:selected" ).text(),
                 "hotel": $( "#hotel option:selected" ).text(),
+                "precio_hotel": $( "#hotel option:selected" ).attr('name'),
+                "estrellas": $( "#hotel option:selected" ).val(),
                 "excursion1": $( "#excursion1 option:selected" ).text(),
                 "excursion2": $( "#excursion2 option:selected" ).text(),
                 "excursion3": $( "#excursion3 option:selected" ).text(),
@@ -101,7 +168,8 @@ $(document).on("click","button#id_accion_si",function(){
 
             },
         success: function(data){
-            console.log("volvio a pleno")
+            window.location.replace('/');
+            console.log("volvio a pleno");
         }
     });
 });
@@ -143,3 +211,56 @@ $(document).on('change', '#hotel', function() {
 // });
 
 // $( "#hotel option:selected" ).val()
+
+
+
+/* RESERVAR PAQUETE */
+$(document).on("click","button#reservar",function(){
+
+    $.ajax({
+        url : "reservar_paquete",     //
+        dataType: "json",
+        data: {"id_paquete": $(this).attr('name')},
+        success: function(data){
+            $('#modal_reserva').show();
+            $('#modal_reserva').modal('show');    
+        }
+    });
+
+
+    // $.ajax({
+    //     url : "http://127.0.0.1:8001/reservar_excursion",     // URL encargada de reservar en API excursion
+    //     method: "POST",
+    //     dataType: "json",
+    //     data: {},
+    //     success: function(data){
+    //     }
+    // });
+
+    // $.ajax({
+    //     url : "http://127.0.0.1:8001/reservar_hotel",     // URL encargada de reservar en API excursion
+    //     method: "POST",
+    //     dataType: "json",
+    //     data: {},
+    //     success: function(data){
+    //     }
+    // });
+
+    // $.ajax({
+    //     url : "http://127.0.0.1:8001/reservar_vuelo_ida",     // URL encargada de reservar en API excursion
+    //     method: "POST",
+    //     dataType: "json",
+    //     data: {},
+    //     success: function(data){
+    //     }
+    // });
+
+    //     $.ajax({
+    //     url : "http://127.0.0.1:8001/reservar_vuelo_vuelta",     // URL encargada de reservar en API excursion
+    //     method: "POST",
+    //     dataType: "json",
+    //     data: {},
+    //     success: function(data){
+    //     }
+    // });
+});

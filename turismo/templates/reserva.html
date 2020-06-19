@@ -1,0 +1,97 @@
+<!Doctype html>
+{% load static %}
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sistema Turismo - Reserva de Paquetes</title>
+		<link href="{% static 'bootstrap/css/bootstrap.min.css'%}" rel="stylesheet" media="screen">
+		<link href="{% static 'bootstrap/css/bootstrap4-toggle.min.css'%}" rel="stylesheet" media="screen">
+		<link href="{% static 'css/style.css'%}" rel="stylesheet" media="screen">		
+	</head>
+
+	<body>
+		<div class="container-fluid" id="header"><p>Sistema Turismo - Reserva de Paquetes</p></div>	
+		<div class="content">
+			<div class="container-fluid form-content">
+
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">Nombre</th>
+				      <th scope="col">Precio</th>
+				      <th scope="col">Personas</th>
+				      <th scope="col">Inicio</th>
+				      <th scope="col">Fin</th>
+				      <th scope="col">Origen</th>
+				      <th scope="col">Destino</th>
+				      <th scope="col">V. Ida</th>
+				      <th scope="col">V. Vuelta</th>
+				      <th scope="col">Hotel</th>
+				      <th scope="col">Estrellas</th>
+				      <th scope="col">Exc. 1</th>
+				      <th scope="col">Exc. 2</th>
+				      <th scope="col">Exc. 3</th>
+				      <th scope="col">//</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	{% for paquete in paquetes %}
+				    <tr>
+				      <th scope="row">{{ paquete.nombre }}</th>
+				      <td>{{ paquete.precio }}</td>
+				      <td>{{ paquete.cantidad_p }}</td>
+				      <td>{{ paquete.fecha_inicio }}</td>
+				      <td>{{ paquete.fecha_fin }}</td>
+				      <td>{{ paquete.ciudad_origen }}</td>
+				      <td>{{ paquete.ciudad_destino }}</td>
+				      <td>{{ paquete.vuelo_ida }}</td>
+				      <td>{{ paquete.vuelo_vuelta }}</td>
+				      <td>{{ paquete.hotel }}</td>
+				      <td>{{ paquete.estrellas }}</td>
+				      <td>{{ paquete.excursion1 }}</td>
+				      <td>{{ paquete.excursion2 }}</td>
+				      <td>{{ paquete.excursion3 }}</td>
+				      <td><button class="new-btn-style eliminar" id="reservar" name="{{ paquete.id }}">Reservar</button></td>
+				    </tr>
+					{% endfor %}
+				  </tbody>
+				</table>
+		</div><!--DIV CIERRE <CONTENT></CONTENT>-->
+
+			<!-- MODAL -->
+			<div id="modal_reserva" class="modal fade" tabindex="-1" role="dialog">
+			 	<div class="modal-dialog modal-dialog-centered" role="document">
+			    	<div class="modal-content">
+			    		<div class="modal-header">
+			    			<h5 class="modal-title">Confirmacion</h5>
+			    			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			    				<span aria-hidden="true">&times;</span>
+			    			</button>
+			    		</div>
+			    		<div class="modal-body">
+			    			<p>Paquete reservado con exito.</p>
+			    		</div>
+			    		<div class="modal-footer">
+			    			<button type="button" class="new-btn-style" data-dismiss="modal">Cerrar</button>
+			    		</div>
+			    	</div>
+			 	</div>
+			 	
+			</div>
+
+			<!-- FIN MODAL -->
+
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+		<script src="{% static 'jQuery/jquery-3.4.1.min.js' %}"></script>
+		<script src="{% static 'bootstrap/js/bootstrap4-toggle.min.js' %}"></script>
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/base.js' %}"></script>
+
+		<!-- <script src="{% static 'js/base.js' %}"></script>    -->
+	</body>
+</html>
