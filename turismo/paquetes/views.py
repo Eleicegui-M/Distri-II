@@ -76,14 +76,27 @@ def reservar_paquete(request):
 
 	paquete.save()
 
-	# pload = {'hotel_id':'paquete.hotel','cant_p':'123'}
-	# r = requests.post('https://httpbin.org/post',data = pload)
+	# ------- INICIO LOGICA DE AVISO DE RESERVA A DEMAS APIs -------
 
-	# pload = {'username':'olivia','password':'123'}
-	# r = requests.post('https://httpbin.org/post',data = pload)
+	# pload = {'hotel_id':'paquete.hotel','cant_p':'cantidad_p'}
+	# r = requests.post('https://api-hotel.com/reserva',data = pload)
 
-	# pload = {'username':'olivia','password':'123'}
-	# r = requests.post('https://httpbin.org/post',data = pload)
+	# pload = {'vuelo_id':'paquete.vuelo_ida','cant_p':'cantidad_p'}
+	# r = requests.post('https://api-vuelo.com/reserva',data = pload)
+
+	# pload = {'vuelo_id':'paquete.vuelo_vuelta','cant_p':'cantidad_p'}
+	# r = requests.post('https://api-vuelo.com/reserva',data = pload)
+
+	# pload = {'excursion_id':'paquete.excursion1','cant_p':'cantidad_p'}
+	# r = requests.post('https://api-excursion.com/reserva',data = pload)
+
+	# pload = {'excursion_id':'paquete.excursion2','cant_p':'cantidad_p'}
+	# r = requests.post('https://api-excursion.com/reserva',data = pload)
+
+	# pload = {'excursion_id':'paquete.excursion3','cant_p':'cantidad_p'}
+	# r = requests.post('https://api-excursion.com/reserva',data = pload)
+
+	#------- FIN LOGICA DE AVISO DE RESERVA A DEMAS APIs -------
 
 	return JsonResponse({"ok": "ok"})
 
