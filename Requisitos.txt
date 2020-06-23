@@ -1,0 +1,22 @@
+- Instalar Python
+- Instalar Django
+
+- Correr primero "fake apis" en distintos puertos, ingresar en cada carpeta de las APIs y correr los distintos comandos:
+	- API excursion:
+
+	py manage.py runserver 8001
+
+	- API hotel:
+	py manage.py runserver 8002
+
+	- API vuelo:
+	py manage.py runserver 8003
+
+
+- Luego entrar a carpeta turismo y correr el siguiente comando:
+py manage.py runserver 8000
+
+- Para ver el caso de uso ARMAR PAQUETE directamente en la url: localhost:8000 ya va a mostrar el formulario de armar paquete y se puede probar al funcionalidad (probar fecha desde 22/06 a 30/06 para ver datos completos, sino el que desee pero la disponibilidad se ve ajustada a las fechas cargadas)
+
+
+- Para ver el caso de uso RESERVAR PAQUETE, poner en la url: localhost:8000/paquetes/listar_paquete. Se van a listar los paquetes que no esten reservados, y al apretar en el boton "reservar", se realiza la funcion correspondiente a la reserva del mismo y recarga la pagina ya sin el paquete reservado. 
