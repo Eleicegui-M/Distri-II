@@ -52,7 +52,6 @@ $( "#buscar" ).click(function() {
         dataType: "json",
         data: {"fecha_inicio": $( "#fecha_inicio" ).val(), "fecha_fin": $( "#fecha_fin" ).val(), "destino": $( "#destino" ).val(),  "cantidad_p": $( "#cantidad_p" ).val()},
         success: function(data){
-            console.log("llega a ajax hotel")
             $.each(data.hoteles, function (i, val) {
                 $('#hotel')
                          .append($("<option></option>")
@@ -61,7 +60,6 @@ $( "#buscar" ).click(function() {
                                     .text(val));
             })
             $('#estrellas').val(data.estrellas[0]);
-            console.log($( "#hotel option:selected" ).attr('name'))
         }
     });
 
@@ -71,7 +69,6 @@ $( "#buscar" ).click(function() {
         dataType: "json",
         data: {"fecha_inicio": $( "#fecha_inicio" ).val(), "origen": $( "#origen" ).val(),"destino": $( "#destino" ).val(),  "cantidad_p": $( "#cantidad_p" ).val()},
         success: function(data){
-            console.log("llega a ajax vuelos_ida")
             $.each(data.vuelos, function (i, val) {
                 $('#vuelo_ida')
                          .append($("<option></option>")
@@ -87,7 +84,6 @@ $( "#buscar" ).click(function() {
         dataType: "json",
         data: {"fecha_inicio": $( "#fecha_fin" ).val(), "origen": $( "#destino" ).val(),"destino": $( "#origen" ).val(),  "cantidad_p": $( "#cantidad_p" ).val()},
         success: function(data){
-            console.log("llega a ajax vuelos_vuelta")
             $.each(data.vuelos, function (i, val) {
                 $('#vuelo_vuelta')
                          .append($("<option></option>")
@@ -137,7 +133,6 @@ $(document).on("click","button#generar",function(){
 });
 
 $(document).on("click","button#reservar",function(){
-    console.log("Toca el boton");
     $('#modal_reservar').show();
     $('#modal_reservar').modal('show');
 });
@@ -169,14 +164,12 @@ $(document).on("click","button#id_accion_si",function(){
             },
         success: function(data){
             window.location.replace('/');
-            console.log("volvio a pleno");
         }
     });
 });
 
 // $(document).on("change","#hotel",function(){
 $(document).on('change', '#hotel', function() {
-    console.log("Hasta aca llega perrito");
     $('#estrellas').val($( "#hotel option:selected" ).val());
 });
 
@@ -226,41 +219,9 @@ $(document).on("click","button#reservar",function(){
             $('#modal_reserva').modal('show');    
         }
     });
+});
 
 
-    // $.ajax({
-    //     url : "http://127.0.0.1:8001/reservar_excursion",     // URL encargada de reservar en API excursion
-    //     method: "POST",
-    //     dataType: "json",
-    //     data: {},
-    //     success: function(data){
-    //     }
-    // });
-
-    // $.ajax({
-    //     url : "http://127.0.0.1:8001/reservar_hotel",     // URL encargada de reservar en API excursion
-    //     method: "POST",
-    //     dataType: "json",
-    //     data: {},
-    //     success: function(data){
-    //     }
-    // });
-
-    // $.ajax({
-    //     url : "http://127.0.0.1:8001/reservar_vuelo_ida",     // URL encargada de reservar en API excursion
-    //     method: "POST",
-    //     dataType: "json",
-    //     data: {},
-    //     success: function(data){
-    //     }
-    // });
-
-    //     $.ajax({
-    //     url : "http://127.0.0.1:8001/reservar_vuelo_vuelta",     // URL encargada de reservar en API excursion
-    //     method: "POST",
-    //     dataType: "json",
-    //     data: {},
-    //     success: function(data){
-    //     }
-    // });
+$(document).on("click","button#cerrar_modal",function(){
+    window.location.replace("/paquetes/listar_paquete");
 });

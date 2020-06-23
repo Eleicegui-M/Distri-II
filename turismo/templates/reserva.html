@@ -52,7 +52,7 @@
 				      <td>{{ paquete.excursion1 }}</td>
 				      <td>{{ paquete.excursion2 }}</td>
 				      <td>{{ paquete.excursion3 }}</td>
-				      <td><button class="new-btn-style eliminar" id="reservar" name="{{ paquete.id }}">Reservar</button></td>
+				      <td><button class="btn btn-success" id="reservar" name="{{ paquete.id }}">Reservar</button></td>
 				    </tr>
 					{% endfor %}
 				  </tbody>
@@ -73,7 +73,7 @@
 			    			<p>Paquete reservado con exito.</p>
 			    		</div>
 			    		<div class="modal-footer">
-			    			<button type="button" class="new-btn-style" data-dismiss="modal">Cerrar</button>
+			    			<button type="button" class="btn btn-danger " data-dismiss="modal" id="cerrar_modal">Cerrar</button>
 			    		</div>
 			    	</div>
 			 	</div>

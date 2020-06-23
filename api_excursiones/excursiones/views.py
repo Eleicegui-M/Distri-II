@@ -6,7 +6,6 @@ from datetime import datetime
 # Create your views here.
 
 def listar_excursion(request):
-	print("entra a excursion")
 	fecha_inicio = request.GET.get('fecha_inicio', False);
 	fecha_fin = request.GET.get('fecha_fin', False);
 	cant_p = request.GET.get('cantidad_p',2);

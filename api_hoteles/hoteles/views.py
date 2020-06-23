@@ -6,7 +6,6 @@ from datetime import datetime
 # Create your views here.
 
 def listar_hotel(request):
-	print("entra a hoteles")
 	fecha_inicio = request.GET.get('fecha_inicio', False);
 	fecha_fin = request.GET.get('fecha_fin', False);
 	cant_p = request.GET.get('cantidad_p',2);
@@ -30,7 +29,6 @@ def listar_hotel(request):
 				array_precios.append(hotel.precio)
 				array_estrellas.append(hotel.estrellas)
 
-	print ("hoteles: "+str(array_hoteles))
 	return JsonResponse({"hoteles": array_hoteles,"precios":array_precios ,"estrellas": array_estrellas})
 
 def reservar_hotel():
